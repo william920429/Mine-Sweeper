@@ -31,5 +31,5 @@
 *.out
 *.app
 
-SDL2*
-not used*
+SDL2
+not used dll
