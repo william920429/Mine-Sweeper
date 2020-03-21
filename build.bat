@@ -1,3 +1,21 @@
-chcp 65001
-g++ -o main.exe main.cpp -std=c++17 -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -mwindows -I"D:\!亦翔\寫程式\c++ includes\SDL2-2.0.9 + image-2.0.4 + ttf-2.0.15\x86_64-w64-mingw32\include" -L"D:\!亦翔\寫程式\c++ includes\SDL2-2.0.9 + image-2.0.4 + ttf-2.0.15\x86_64-w64-mingw32\lib"
-main.exe
+@echo off
+chcp 65001 > nul
+
+set icon=icon.ico
+set source=main.cpp
+set name=踩地雷ouo
+set include=.\SDL2\include
+set lib=.\SDL2\lib
+
+echo 1 ICON ".\\files\\%icon%" > "%icon%.rc"
+windres "%icon%.rc" "%icon%.o"
+
+g++ -o "%source%.o" -c "%source%" -I"%include%"
+
+g++ -o "%name%.exe" "%icon%.o" "%source%.o" -std=c++17 -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -mwindows -L"%lib%"
+
+IF %ERRORLEVEL% == 0 (echo Build success!) ELSE (echo Build FAILED!)
+
+del "%icon%.rc" "%icon%.o" "%source%.o"
+
+pause
