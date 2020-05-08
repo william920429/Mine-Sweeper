@@ -1,3 +1,4 @@
+﻿
 @echo off
 chcp 65001 > nul
 
@@ -12,7 +13,7 @@ windres "%icon%.rc" "%icon%.o"
 
 g++ -o "%source%.o" -c "%source%" -I"%include%"
 
-g++ -o "%name%.exe" "%icon%.o" "%source%.o" -std=c++17 -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -mwindows -static-libgcc -static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic -L"%lib%"
+g++ -o "%name%.exe" "%icon%.o" "%source%.o" -std=c++17 -Os -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -mwindows -static-libgcc -static-libstdc++ -Wl,-Bstatic -lstdc++ -lpthread -Wl,-Bdynamic -L"%lib%"
 
 IF %ERRORLEVEL% == 0 (echo Build success!) ELSE (echo Build FAILED!)
 
