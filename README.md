@@ -1,3 +1,3 @@
 # Mine-Sweepper
-with sdl2  
-todo: replay
+## Requires: SDL2 boost/property_tree 
+## todo: replay
