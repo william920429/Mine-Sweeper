@@ -1,3 +1,3 @@
 # Mine-Sweepper
-with sdl2
-todo replay
+with sdl2  
+todo: replay
